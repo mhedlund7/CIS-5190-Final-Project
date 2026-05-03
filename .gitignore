@@ -9,6 +9,17 @@ env/
 .DS_Store
 *.pdf
 
-data/raw/
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/initial_batch/
+data/raw/initial_batch/*
+!data/raw/initial_batch/.gitkeep
 data/processed/
-data/image2gps_dataset/
+data/image2gps_dataset/*
+!data/image2gps_dataset/.gitkeep
+!data/image2gps_dataset/train/
+!data/image2gps_dataset/validation/
+data/image2gps_dataset/train/*
+data/image2gps_dataset/validation/*
+!data/image2gps_dataset/train/.gitkeep
+!data/image2gps_dataset/validation/.gitkeep

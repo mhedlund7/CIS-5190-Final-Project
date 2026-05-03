@@ -8,7 +8,22 @@ I downloaded our initial image batch from our shared google photos album into:
 data/raw/initial_batch/
 ```
 
-Raw photos and generated dataset folders are ignored by Git, so they will not be committed directly to the repository, but if you want them you can just maually download all from google photos and put them into the data/raw/initial_batch folder.
+The repo tracks empty placeholder folders using `.gitkeep` files so everyone gets the expected data structure after cloning. The actual image files, generated split images, and generated metadata files are still ignored by Git because they are large/binary data.
+
+To reproduce the local setup:
+
+1. download the images from the shared Google Photos album - I also shared these with you guys;
+2. put the JPEGs in `data/raw/initial_batch/`;
+3. run `notebooks/01_data_collection_preprocessing.ipynb` from the top;
+4. the notebook will regenerate:
+
+```text
+data/image2gps_dataset/train/
+data/image2gps_dataset/validation/
+```
+
+with images and `metadata.csv` files inside each split.
+
 
 ## Notebook 1: Data Collection Preprocessing
 
