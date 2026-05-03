@@ -7,3 +7,8 @@ venv/
 env/
 
 .DS_Store
+*.pdf
+
+data/raw/
+data/processed/
+data/image2gps_dataset/
