@@ -27,11 +27,11 @@ class IMG2GPS(nn.Module):
     def __init__(self):
         super().__init__()
 
-        self.backbone = models.resnet18(weights=None)
+        self.model = models.resnet18(weights=None)
 
-        in_features = self.backbone.fc.in_features
+        in_features = self.model.fc.in_features
 
-        self.backbone.fc = nn.Sequential(
+        self.model.fc = nn.Sequential(
             nn.Linear(in_features, 256),
             nn.ReLU(),
             nn.Dropout(0.2),
@@ -46,7 +46,7 @@ class IMG2GPS(nn.Module):
     def forward(self, batch):
         if isinstance(batch, (list, tuple)):
             batch = torch.stack(batch, dim=0)
-        preds_norm = self.backbone(batch)
+        preds_norm = self.model(batch)
 
         lat = preds_norm[:, 0] * self.lat_std + self.lat_mean
         lon = preds_norm[:, 1] * self.lon_std + self.lon_mean
