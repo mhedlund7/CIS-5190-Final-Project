@@ -8,6 +8,7 @@ env/
 
 .DS_Store
 *.pdf
+latex_template.tex
 
 data/raw/*
 !data/raw/.gitkeep
